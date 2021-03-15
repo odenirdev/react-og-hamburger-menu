@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { ExampleComponent } from 'react-og-hamburger-menu'
-import 'react-og-hamburger-menu/dist/index.css'
+import MenuSwitcher from 'react-og-hamburger-menu'
+
+import './styles.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  const [show, setShow] = useState(false)
+
+  function handleMenuSwitcherClick() {
+    setShow(!show)
+  }
+
+  return <MenuSwitcher {...{ show }} onClick={handleMenuSwitcherClick} />
 }
 
 export default App

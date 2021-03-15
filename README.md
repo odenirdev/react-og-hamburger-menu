@@ -13,16 +13,23 @@ npm install --save react-og-hamburger-menu
 ## Usage
 
 ```tsx
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-import MyComponent from 'react-og-hamburger-menu'
-import 'react-og-hamburger-menu/dist/index.css'
+import MenuSwitcher from 'react-og-hamburger-menu'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
+import './styles.css'
+
+const App = () => {
+  const [show, setShow] = useState(false)
+
+  function handleMenuSwitcherClick() {
+    setShow(!show)
   }
+
+  return <MenuSwitcher {...{ show }} onClick={handleMenuSwitcherClick} />
 }
+
+export default App
 ```
 
 ## License

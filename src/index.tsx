@@ -1,10 +1,23 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import React from 'react'
+
+import { Container } from './styles'
 
 interface Props {
-  text: string
+  show: boolean
+  onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  color?: string
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+const MenuSwitcher = (props: Props) => {
+  return (
+    <Container
+      className={`${props.show ? 'open' : ''}`}
+      onClick={props.onClick}
+      color={props.color}
+    >
+      <div className='burger-switcher' />
+    </Container>
+  )
 }
+
+export default MenuSwitcher
